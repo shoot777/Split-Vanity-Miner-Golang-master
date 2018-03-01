@@ -39,12 +39,12 @@ func main() {
     }
     Address=string(part)
 	fmt.Println("Your address is - ", Address)
-	fmt.Println("Fetching work (vanitypooltest)...")
+	fmt.Println("Fetching work (vanitypool)...")
 	
 	
 	
 	
-	response, err := http.Get("https://vanitypooltest.appspot.com/getWork")
+	response, err := http.Get("https://vanitypool.appspot.com/getWork")
 	if err != nil {
 		fmt.Println("Problems fetching work. Terminating.")
 		return
@@ -111,7 +111,7 @@ func main() {
 				fmt.Println("Attempting to hand in work...")
 				
 				
-				postAddress:="https://vanitypooltest.appspot.com/solveWork?key="+work[i].PublicKey+":"+work[i].Pattern+"&privateKey="+mymath.Hex2Str(mymath.Big2Hex(key.D))+"&bitcoinAddress="+Address
+				postAddress:="https://vanitypool.appspot.com/solveWork?key="+work[i].PublicKey+":"+work[i].Pattern+"&privateKey="+mymath.Hex2Str(mymath.Big2Hex(key.D))+"&bitcoinAddress="+Address
 				response, err = http.Get(postAddress)
 				if err != nil {
 					fmt.Println("Problems fetching work. Terminating.")
